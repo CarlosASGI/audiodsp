@@ -1,6 +1,6 @@
 //Compresion multibanda en Javascript hecho por CarlosASGI
 //<---------DECLARAMOS LAS VARIABLES------->
-const media=document.querySelector("video"); // <- Selecciona el video
+//const media=document.querySelector("video"); // <- Selecciona el video
 const audioCtx=new AudioContext(); // <- Crea un contexto de audio (AudioContext)
 
 //Declaramos las frecuencias
@@ -24,7 +24,7 @@ const preCompressor=audioCtx.createDynamicsCompressor(); //Crea un pre compresor
 preCompressor.threshold.value=-0;
 preCompressor.knee.value=9;
 preCompressor.ratio.value=20;
-preCompressor.attack.value=1;
+preCompressor.attack.value=0;
 preCompressor.release.value=1;
 
 

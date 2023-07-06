@@ -1,6 +1,6 @@
 //Compresion multibanda con Ecualizador en Javascript hecho por CarlosASGI
 //<---------DECLARAMOS LAS VARIABLES------->
-const media=document.querySelector("video"); // <- Selecciona el video
+//const media=document.querySelector("video"); // <- Selecciona el video
 const audioCtx=new AudioContext(); // <- Crea un contexto de audio (AudioContext)
 
 //Declaramos las frecuencias
@@ -104,7 +104,7 @@ const preB3G=audioCtx.createGain();
 
 //Ahora los compresores
 const compressor0=audioCtx.createDynamicsCompressor(); //Crea el compresor0 en el contexto de audio
-compressor0.threshold.value=-6;
+compressor0.threshold.value=0;
 compressor0.knee.value=12;
 compressor0.ratio.value=20;
 compressor0.attack.value=0;
@@ -126,17 +126,17 @@ compressor2.release.value=0.1;
 
 const compressor3=audioCtx.createDynamicsCompressor(); //Crea el compresor3 en el contexto de audio
 compressor3.threshold.value=0;
-compressor3.knee.value=2;
+compressor3.knee.value=1;
 compressor3.ratio.value=20;
 compressor3.attack.value=0;
-compressor3.release.value=0.08;
+compressor3.release.value=0.06;
 
 const postCompressor=audioCtx.createDynamicsCompressor(); //Crea un post compresor para tratar de no saturar el audio
 postCompressor.threshold.value=-2;
 postCompressor.knee.value=0;
 postCompressor.ratio.value=20;
 postCompressor.attack.value=0;
-postCompressor.release.value=0.1;
+postCompressor.release.value=0.01;
 
 const b0G=audioCtx.createGain();
 const b1G=audioCtx.createGain();
@@ -188,7 +188,7 @@ function test(stream){
     preB0G.gain.value=2;
     preB1G.gain.value=2;
     preB2G.gain.value=1;
-    preB3G.gain.value=6;
+    preB3G.gain.value=2;
 
     b0G.gain.value=1;
     b1G.gain.value=1;
